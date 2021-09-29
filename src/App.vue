@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Mail list</h1>
+    <p>{{ListaMail}}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: function(){
+    return {
+      ListaMail: []
+    }
+
+  },
+  mounted(){
+    let self = this;
+    for(let i = 0 ; i < 10 ; i++){
+    axios.get( 'https://flynn.boolean.careers/exercises/api/random/mail')
+
+    .then (function(response){
+    
+    self.ListaMail.push(response.data.response)})
+
+    }
+    
   }
 }
 </script>
