@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <h1>Mail list</h1>
-    <p>{{ListaMail}}</p>
+    <div v-if="ListaMail.length == 10">
+      <h1>Mail list</h1>
+      <p>{{ListaMail}}</p>
+
+    </div>
   </div>
 </template>
 
